@@ -29,18 +29,19 @@ http://www.sargentoweb.com/php_gd/?doc=25
     </head>
     <body>
         <?php 
-        $im = imagecreatefrompng("ico0.png"); // la imagen debe tener perimos de lectura para apache
-        echo "<table>";
-        for( $y = 0; $y < imagesy( $im ); $y++ ) {
-            echo "\t<tr>";
-            for( $x = 0; $x < imagesx( $im ); $x++ ) {
-                $rgb = imagecolorat( $im, $x, $y );
-                $hex = sprintf( "%06X", $rgb );
-                echo "\t\t<td style=\"background-color:#".$hex.";\"></td>\n";
+            // la imagen debe tener perimos de lectura para apache
+            $im = imagecreatefrompng("ico0.png"); 
+            echo "<table>";
+            for( $y = 0; $y < imagesy( $im ); $y++ ) {
+                echo "\t<tr>";
+                for( $x = 0; $x < imagesx( $im ); $x++ ) {
+                    $rgb = imagecolorat( $im, $x, $y );
+                    $hex = sprintf( "%06X", $rgb );
+                    echo "\t\t<td style=\"background-color:#".$hex.";\"></td>\n";
+                }
+                echo "\t</tr>\n";
             }
-            print "\t</tr>\n";
-        }
-        imagedestroy( $im );
+            imagedestroy( $im );
         ?>
     </body>
 </html>
